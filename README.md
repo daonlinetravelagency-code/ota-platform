@@ -107,3 +107,6 @@ Backend uses environment variables from `docker-compose.yml`:
 ## Notes
 
 This is a POC (Proof of Concept) phase. AWS deployment will be implemented during MVP phase.
+
+## CI/CD Pipeline
+Automated deployment to Cloudflare Pages & Workers configured.
