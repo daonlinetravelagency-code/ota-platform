@@ -1,0 +1,24 @@
+{
+  "name": "ota-platform",
+  "version": "0.1.0",
+  "description": "Online Travel Agency Platform MVP",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/frontend",
+    "packages/backend"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace=packages/frontend & npm run dev --workspace=packages/backend",
+    "build": "npm run build --workspace=packages/frontend && npm run build --workspace=packages/backend",
+    "build:frontend": "npm run build --workspace=packages/frontend",
+    "build:backend": "npm run build --workspace=packages/backend",
+    "start": "npm start --workspace=packages/backend",
+    "lint": "npm run lint --workspace=packages/frontend",
+    "type-check": "npm run type-check --workspace=packages/backend"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "npm": ">=10.0.0"
+  }
+}
