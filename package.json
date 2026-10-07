@@ -1,0 +1,30 @@
+{
+  "name": "ota-platform",
+  "version": "0.1.0",
+  "description": "Online Travel Agency Platform - POC",
+  "private": true,
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "scripts": {
+    "dev": "docker-compose up",
+    "down": "docker-compose down",
+    "down-volumes": "docker-compose down -v",
+    "logs": "docker-compose logs -f",
+    "logs:backend": "docker-compose logs -f backend",
+    "logs:frontend": "docker-compose logs -f frontend",
+    "db:migrate": "docker-compose exec backend npm run migrate",
+    "build": "npm run build --workspaces",
+    "build:frontend": "cd frontend && npm run build",
+    "build:backend": "cd backend && npm run build",
+    "deploy:frontend": "cd frontend && npm run build && wrangler pages deploy out --project-name=ota-platform",
+    "deploy:backend": "wrangler deploy",
+    "deploy": "npm run deploy:backend && npm run deploy:frontend",
+    "lint": "npm run lint --workspaces --if-present",
+    "type-check": "npm run type-check --workspaces --if-present"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
