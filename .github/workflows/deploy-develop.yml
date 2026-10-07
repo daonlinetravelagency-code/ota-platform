@@ -1,8 +1,9 @@
-﻿name: Deploy (Develop)
+name: Deploy to Cloudflare (Develop)
 
 on:
   push:
-    branches: [ develop ]
+    branches:
+      - develop
 
 jobs:
   deploy:
@@ -24,12 +25,3 @@ jobs:
       
       - name: Build backend
         run: npm run build:backend
-      
-      - name: Deploy to Cloudflare (develop)
-        env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-        run: |
-          npm install -g wrangler
-          cd frontend && wrangler pages deploy out --project-name=ota-platform-dev
-          cd ../backend && wrangler deploy --name ota-platform-dev
