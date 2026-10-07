@@ -1,0 +1,18 @@
+name = "ota-platform-api-dev"
+type = "service"
+account_id = "YOUR_ACCOUNT_ID"
+workers_dev = true
+main = "dist/index.js"
+compatibility_date = "2024-01-01"
+
+[env.development]
+name = "ota-platform-api-dev"
+routes = [
+    { pattern = "api.dev-example.com/*", zone_name = "example.com" }
+]
+
+[env.production]
+name = "ota-platform-api-prod"
+routes = [
+    { pattern = "api.example.com/*", zone_name = "example.com" }
+]
