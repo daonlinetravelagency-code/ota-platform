@@ -14,7 +14,7 @@ const start = async () => {
   try {
     // Initialize database
     const db = await initDb();
-    console.log('✓ Database connected');
+    console.log('âœ“ Database connected');
 
     // Create Fastify instance
     const fastify = Fastify({
@@ -33,7 +33,8 @@ const start = async () => {
     });
 
     // Make db available to all routes
-    fastify.decorate('db', db);
+    fastify.decorate('pgPool', db);
+    fastify.decorate('redisClient', redis);
 
     // Register routes
     await registerHealthRoutes(fastify);
@@ -42,8 +43,8 @@ const start = async () => {
     // Start server
     await fastify.listen({ port: PORT, host: HOST });
 
-    console.log(`✓ Server listening at http://${HOST}:${PORT}`);
-    console.log(`✓ Health check: http://localhost:${PORT}/health`);
+    console.log(`âœ“ Server listening at http://${HOST}:${PORT}`);
+    console.log(`âœ“ Health check: http://localhost:${PORT}/health`);
   } catch (err) {
     console.error('Server start error:', err);
     process.exit(1);

@@ -1,8 +1,10 @@
 import { FastifyInstance } from 'fastify';
 import { Pool } from 'pg';
+import { RedisClientType } from 'redis';
 
 declare module 'fastify' {
   interface FastifyInstance {
-    db: Pool;
+    pgPool: Pool;
+    redisClient: RedisClientType;
   }
 }
