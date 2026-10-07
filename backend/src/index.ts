@@ -1,3 +1,4 @@
+import './types/fastify.js';
 import Fastify from 'fastify';
 import fastifyJwt from '@fastify/jwt';
 import fastifyCors from '@fastify/cors';
@@ -11,7 +12,7 @@ const HOST = '0.0.0.0';
 const start = async () => {
   try {
     // Initialize database
-    const db = await initDb();
+    const pgPool = await initDb();
     console.log('✓ Database connected');
 
     // Create Fastify instance
@@ -30,8 +31,8 @@ const start = async () => {
       secret: process.env.JWT_SECRET || 'your-secret-key',
     });
 
-    // Make db available to all routes
-    fastify.decorate('db', db);
+    // Make pgPool available to all routes
+    fastify.decorate('pgPool', pgPool);
 
     // Register routes
     await registerHealthRoutes(fastify);
@@ -43,7 +44,7 @@ const start = async () => {
     console.log(`✓ Server listening at http://${HOST}:${PORT}`);
     console.log(`✓ Health check: http://localhost:${PORT}/health`);
   } catch (err) {
-    console.error('Server start error:', err);
+    console.error('✗ Server start error:', err);
     process.exit(1);
   }
 };

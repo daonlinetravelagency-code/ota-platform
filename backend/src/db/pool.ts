@@ -1,16 +1,10 @@
 import { Pool } from 'pg';
-import { createClient } from 'redis';
 
 let pgPool: Pool;
-let redisClient: ReturnType<typeof createClient>;
 
 export async function initDb() {
   pgPool = new Pool({
-    connectionString: process.env.DATABASE_URL,
-  });
-
-  redisClient = createClient({
-    url: process.env.REDIS_URL,
+    connectionString: process.env.DATABASE_URL || `postgresql://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`,
   });
 
   try {
@@ -19,23 +13,18 @@ export async function initDb() {
     await client.query('SELECT NOW()');
     client.release();
 
-    // Test Redis connection
-    await redisClient.connect();
-    await redisClient.ping();
-
-    console.log('Database connections established');
-    return { pgPool, redisClient };
+    console.log('✓ Database connection established');
+    return pgPool;
   } catch (error) {
-    console.error('Database connection failed:', error);
+    console.error('✗ Database connection failed:', error);
     throw error;
   }
 }
 
 export function getDb() {
-  return { pgPool, redisClient };
+  return pgPool;
 }
 
 export async function closeDb() {
   await pgPool.end();
-  await redisClient.quit();
 }
