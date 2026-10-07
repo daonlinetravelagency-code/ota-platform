@@ -1,9 +1,11 @@
+import './types/fastify.js';
 import Fastify from 'fastify';
 import fastifyJwt from '@fastify/jwt';
 import fastifyCors from '@fastify/cors';
 import { initDb } from './db/pool.js';
 import { registerHealthRoutes } from './routes/health.js';
 import { registerTestRoutes } from './routes/test.js';
+
 
 const PORT = parseInt(process.env.PORT || '3001');
 const HOST = '0.0.0.0';
