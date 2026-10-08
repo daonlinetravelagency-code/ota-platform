@@ -11,7 +11,7 @@ export async function registerHealthRoutes(fastify: FastifyInstance) {
 
   fastify.get('/health/ready', async (request, reply) => {
     try {
-      const result = await fastify.db.pgPool.query('SELECT NOW()');
+      const result = await fastify.pgPool.query('SELECT NOW()');
       return {
         status: 'ready',
         database: 'connected',
