@@ -8,3 +8,5 @@ build/
 *.log
 .next/
 .turbo/
+frontend/out/
+backend/dist/
