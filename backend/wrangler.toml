@@ -1,6 +1,6 @@
 ﻿name = "ota-backend"
-type = "service"
 main = "dist/index.js"
+compatibility_date = "2026-10-16"
 
 [env.production]
 routes = [
