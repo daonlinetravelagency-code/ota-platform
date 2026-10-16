@@ -1,6 +1,9 @@
-export const metadata = {
-  title: 'OTA Platform',
-  description: 'Online Travel Agency - Book flights, hotels, and more',
+import type { Metadata } from 'next';
+import './globals.css';
+
+export const metadata: Metadata = {
+  title: 'Daonline - Book Flights & Hotels Worldwide',
+  description: 'Book flights, hotels, and tours from Israel to Georgia and worldwide',
 };
 
 export default function RootLayout({
@@ -10,18 +13,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </head>
-      <body style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
-        <nav style={{ padding: '1rem', backgroundColor: '#f5f5f5' }}>
-          <a href="/" style={{ marginRight: '1rem', textDecoration: 'none' }}>
-            <strong>OTA Platform</strong>
-          </a>
-        </nav>
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
