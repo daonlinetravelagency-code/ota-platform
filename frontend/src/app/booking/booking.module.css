@@ -1,0 +1,103 @@
+﻿.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f8f9fa;
+}
+
+.header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.header h1 { margin: 0; font-size: 1.5rem; }
+.header p { margin: 0.5rem 0 0 0; opacity: 0.9; }
+
+.content {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  width: 100%;
+}
+
+.summary { background: white; padding: 1.5rem; border-radius: 12px; height: fit-content; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+.summaryCard h3 { margin: 0 0 1rem 0; }
+.flightSummary p { margin: 0.25rem 0; color: #666; }
+.flightSummary strong { color: #333; }
+.duration { font-weight: 600; color: #667eea; margin-top: 0.75rem; }
+.flightNumber { color: #999; font-size: 0.9rem; }
+
+.priceBreakdown { margin-top: 1.5rem; border-top: 1px solid #e0e0e0; padding-top: 1rem; }
+.priceRow { display: flex; justify-content: space-between; margin-bottom: 0.5rem; color: #666; }
+.priceRow.total { border-top: 1px solid #e0e0e0; padding-top: 0.5rem; font-weight: 600; color: #333; margin-top: 0.75rem; }
+
+.successBadge { background: #4caf50; color: white; padding: 0.5rem; border-radius: 6px; text-align: center; margin-top: 1rem; font-weight: 600; }
+
+.main { background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+
+.testScenario { background: #fff3cd; padding: 1rem; border-radius: 8px; margin-bottom: 2rem; border: 1px solid #ffc107; }
+.testScenario h4 { margin: 0 0 1rem 0; }
+.scenarioButtons { display: flex; gap: 1rem; }
+.scenarioBtn { padding: 0.75rem 1rem; border: 2px solid #e0e0e0; background: white; border-radius: 6px; cursor: pointer; transition: all 0.3s; text-align: left; }
+.scenarioBtn:hover { border-color: #ffc107; }
+.scenarioBtn.active { border-color: #667eea; background: #f0f4ff; }
+.scenarioBtn div { font-weight: 600; }
+.scenarioBtn small { color: #666; font-size: 0.8rem; }
+
+.form h2 { margin: 0 0 1.5rem 0; }
+.formGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem; }
+.formGroup { display: flex; flex-direction: column; }
+.formGroup label { font-weight: 600; margin-bottom: 0.5rem; color: #333; }
+.formGroup input { padding: 0.75rem; border: 2px solid #e0e0e0; border-radius: 6px; font-size: 1rem; }
+.formGroup input:focus { outline: none; border-color: #667eea; }
+
+.paymentWarning { background: #e3f2fd; padding: 1rem; border-radius: 6px; margin-bottom: 1.5rem; border-left: 4px solid #667eea; }
+.paymentWarning p { margin: 0.25rem 0; color: #1565c0; }
+
+.formActions { display: flex; gap: 1rem; }
+.backBtn { flex: 1; padding: 0.75rem; background: #f5f5f5; border: 2px solid #e0e0e0; border-radius: 6px; cursor: pointer; font-weight: 600; }
+.submitBtn { flex: 1; padding: 0.75rem; background: #667eea; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 1rem; }
+.submitBtn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.nextBtn { width: 100%; padding: 1rem; background: #667eea; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 1rem; }
+
+.confirmationBox { text-align: center; }
+.successIcon { font-size: 4rem; margin-bottom: 1rem; }
+.errorIcon { font-size: 4rem; margin-bottom: 1rem; }
+
+.successConfirmation { background: #f1f8e9; padding: 2rem; border-radius: 12px; }
+.successConfirmation h2 { color: #2e7d32; margin: 0 0 1.5rem 0; }
+
+.errorConfirmation { background: #ffebee; padding: 2rem; border-radius: 12px; }
+.errorConfirmation h2 { color: #c62828; margin: 0 0 1rem 0; }
+
+.errorMessage { color: #c62828; font-weight: 600; margin: 0 0 0.5rem 0; }
+.errorSuggestion { color: #d32f2f; margin: 0 0 1.5rem 0; }
+
+.confirmationDetails { text-align: left; background: white; padding: 1rem; border-radius: 6px; margin: 1.5rem 0; }
+.confirmationDetails p { margin: 0.5rem 0; color: #333; }
+.confirmationPrice { font-size: 1.1rem; color: #667eea; }
+
+.nextSteps { text-align: left; background: white; padding: 1rem; border-radius: 6px; margin: 1rem 0; }
+.nextSteps h4 { margin: 0 0 0.75rem 0; }
+.nextSteps ul { margin: 0; padding-left: 1.5rem; }
+.nextSteps li { color: #666; margin-bottom: 0.5rem; }
+
+.scenarioInfo { margin-top: 1.5rem; padding: 1rem; background: rgba(102, 126, 234, 0.1); border-radius: 6px; color: #333; font-size: 0.9rem; }
+.testLabel { font-weight: 600; margin: 0 0 0.5rem 0; }
+.scenarioInfo p { margin: 0.25rem 0; }
+
+.newBookingBtn { margin-top: 1.5rem; padding: 1rem 2rem; background: #667eea; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; }
+
+.footer { text-align: center; padding: 2rem; color: #999; margin-top: auto; border-top: 1px solid #e0e0e0; }
+
+@media (max-width: 768px) {
+  .content { grid-template-columns: 1fr; }
+  .formGrid { grid-template-columns: 1fr; }
+  .scenarioButtons { flex-direction: column; }
+}
