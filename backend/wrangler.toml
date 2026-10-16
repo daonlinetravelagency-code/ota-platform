@@ -1,0 +1,8 @@
+﻿name = "ota-backend"
+type = "service"
+main = "dist/index.js"
+
+[env.production]
+routes = [
+  { pattern = "api.ota-platform.com/*", zone_name = "ota-platform.com" }
+]
